@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - CACD Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .collapsible {
+            background-color: #f1f1f1;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #ccc;
+        }
+
+        .collapsible-content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: white;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-400 to-purple-600 min-h-screen flex flex-col">
+    <header class="flex justify-between items-center p-4 bg-white shadow-md mx-4 mt-4 rounded-lg">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-700 transition duration-300 transform hover:scale-105">Documentation</h1>
+        </div>
+        <div>
+            <a href="index.html" class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300 transform hover:scale-105">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="flex-1 p-6 m-4">
+        <div class="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto">
+            <h2 class="text-2xl font-semibold mb-6 text-center">CACD Platform Documentation</h2>
+            
+            <!-- Table of Contents -->
+            <nav class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Table of Contents</h3>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li><a href="#introduction" class="text-blue-600 hover:underline">Introduction</a></li>
+                    <li><a href="#getting-started" class="text-blue-600 hover:underline">Getting Started</a></li>
+                    <li><a href="#fine-tuning-options" class="text-blue-600 hover:underline">Fine Tuning Options</a></li>
+                    <li><a href="#faqs" class="text-blue-600 hover:underline">FAQs</a></li>
+                    <li><a href="#additional-resources" class="text-blue-600 hover:underline">Additional Resources</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Introduction Section -->
+            <section id="introduction" class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Introduction</h3>
+                <p class="text-gray-700">Welcome to the CACD Platform! This documentation will guide you through the process of setting up and using our platform to create custom chatbots. Whether you're new to chatbot development or an experienced pro, our tools and resources will help you build the perfect assistant for your needs.</p>
+                <p class="text-gray-700">Our platform is designed to be user-friendly and powerful, offering a range of customization options to ensure your chatbot behaves exactly how you want it to. With the CACD Platform, you can create chatbots for customer service, entertainment, and much more.</p>
+                <p class="text-gray-700">Let's get started and explore what you can do with the CACD Platform!</p>
+            </section>
+            
+            <!-- Getting Started Section -->
+            <section id="getting-started" class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Getting Started</h3>
+                <p class="text-gray-700">To get started with the CACD Platform, follow these steps:</p>
+                <ol class="list-decimal list-inside text-gray-700">
+                    <li>Create a new project by entering a project name and configuring the necessary settings.</li>
+                    <li>Use the "Fine Tuning" options to customize the behavior of your language model.</li>
+                    <li>Train your custom chatbot using the provided form.</li>
+                </ol>
+                <p class="text-gray-700">By following these steps, you will be able to set up your chatbot project and begin tailoring it to your specific needs. The platform's intuitive interface makes it easy to configure settings and fine-tune your model.</p>
+            </section>
+            
+            <!-- Fine Tuning Options Section -->
+            <section id="fine-tuning-options" class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Fine Tuning Options</h3>
+                <p class="text-gray-700">The Fine Tuning section allows you to adjust advanced settings for your model:</p>
+                <ul class="list-disc list-inside text-gray-700">
+                    <li><strong>Top-P:</strong> Controls the cumulative probability threshold for token sampling.</li>
+                    <li><strong>Top-K:</strong> Controls the number of highest probability tokens to keep for sampling.</li>
+                    <li><strong>Temperature:</strong> Controls the randomness of predictions by scaling the logits before applying softmax.</li>
+                </ul>
+                <p class="text-gray-700">These options give you precise control over the behavior and output of your chatbot, allowing you to fine-tune its responses to meet your specific requirements. Experiment with different settings to find the optimal configuration for your use case.</p>
+            </section>
+            
+            <!-- FAQs Section with Collapsible Content -->
+            <section id="faqs" class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">FAQs</h3>
+                <button class="collapsible">What is Top-P?</button>
+                <div class="collapsible-content">
+                    <p>Top-P, also known as nucleus sampling, controls the cumulative probability threshold for token sampling, providing more flexible control over the randomness of generated text.</p>
+                </div>
+                <button class="collapsible">How do I choose the right temperature?</button>
+                <div class="collapsible-content">
+                    <p>The temperature parameter controls the randomness of predictions. Lower values make the model more deterministic, while higher values increase randomness. Adjust based on the desired output creativity.</p>
+                </div>
+                <button class="collapsible">What is the difference between Top-K and Top-P?</button>
+                <div class="collapsible-content">
+                    <p>Top-K sampling limits the number of highest probability tokens to consider, while Top-P sampling considers all tokens with a cumulative probability up to a specified threshold. Top-K is more restrictive, whereas Top-P allows more flexible and natural-sounding outputs.</p>
+                </div>
+                <button class="collapsible">Can I use multiple fine-tuning options together?</button>
+                <div class="collapsible-content">
+                    <p>Yes, you can use multiple fine-tuning options together to achieve the desired behavior of your chatbot. For example, you can set both Top-P and Temperature to balance randomness and coherence in the generated responses.</p>
+                </div>
+            </section>
+            
+            <!-- Additional Resources Section -->
+            <section id="additional-resources">
+                <h3 class="text-xl font-semibold mb-2">Additional Resources</h3>
+                <p class="text-gray-700">For more information, visit our <a href="https://example.com" class="text-blue-600 hover:underline">official documentation</a> or join our <a href="https://example.com" class="text-blue-600 hover:underline">community forum</a>.</p>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var coll = document.getElementsByClassName("collapsible");
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CACD Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #fine-tuning-tray {
+            display: none;
+        }
+        #sign-in-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        #sign-in-modal.active {
+            display: block;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        #overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-400 to-purple-600 min-h-screen flex flex-col">
+    <header class="flex justify-between items-center p-4 bg-white shadow-md mx-4 mt-4 rounded-lg">
+        <div>
+            <h1 class="text-2xl font-bold text-gray-700 transition duration-300 transform hover:scale-105">Welcome, <span id="username">User</span>!</h1>
+        </div>
+        <div>
+            <button id="sign-in-btn" class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition duration-300 transform hover:scale-105">Sign In</button>
+        </div>
+    </header>
+
+    <main class="flex flex-1">
+        <aside class="w-1/5 bg-white shadow-md p-4 m-4 rounded-lg flex flex-col">
+            <div>
+                <h2 class="text-xl font-semibold mb-4">Project Settings</h2>
+                <label class="block mb-2 font-medium text-gray-700">Project Name</label>
+                <input type="text" class="w-full p-2 border rounded-md mb-4" placeholder="Enter project name">
+                <button id="fine-tuning-button" class="w-full bg-purple-600 text-white p-2 rounded-md hover:bg-purple-700 transition duration-300 transform hover:scale-105">Fine Tuning</button>
+                <div id="fine-tuning-tray" class="mt-4">
+                    <label class="block mb-2 font-medium text-gray-700">Top-P</label>
+                    <input type="number" class="w-full p-2 border rounded-md mb-4" placeholder="e.g., 0.9">
+                    <label class="block mb-2 font-medium text-gray-700">Top-K</label>
+                    <input type="number" class="w-full p-2 border rounded-md mb-4" placeholder="e.g., 50">
+                    <label class="block mb-2 font-medium text-gray-700">Temperature</label>
+                    <input type="range" class="w-full" min="0" max="1" step="0.01" value="0.7">
+                </div>
+            </div>
+            <div class="mt-auto">
+                <a href="docs.html" class="w-full bg-blue-600 text-white p-2 rounded-md text-center hover:bg-blue-700 transition duration-300 transform hover:scale-105">Docs</a>
+            </div>
+        </aside>
+
+        <section class="flex-1 p-6 m-4">
+            <div class="bg-white p-6 rounded-lg shadow-md max-w-4xl mx-auto">
+                <h2 class="text-2xl font-semibold mb-6 text-center">Create Your Custom Chatbot</h2>
+                <form>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block mb-2 font-medium text-gray-700">Language Model (LLM)</label>
+                            <select class="w-full p-2 border rounded-md">
+                                <option>GPT-4</option>
+                                <option>GPT-3.5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block mb-2 font-medium text-gray-700">Prompt</label>
+                        <textarea class="w-full p-2 border rounded-md" rows="6" placeholder="Enter your prompt here"></textarea>
+                        <p id="prompt-advice" class="mt-2 text-sm text-gray-500"></p>
+                    </div>
+                    <button type="submit" class="w-full bg-purple-600 text-white p-3 rounded-md hover:bg-purple-700 transition duration-300 transform hover:scale-105">Train Chatbot</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="overlay"></div>
+
+    <div id="sign-in-modal">
+        <h2 class="text-2xl font-semibold mb-4">Sign In</h2>
+        <form id="sign-in-form">
+            <div class="mb-4">
+                <label class="block mb-2 font-medium text-gray-700">Username</label>
+                <input type="text" id="sign-in-username" class="w-full p-2 border rounded-md" placeholder="Enter your username" required>
+            </div>
+            <div class="mb-4">
+                <label class="block mb-2 font-medium text-gray-700">Password</label>
+                <input type="password" id="sign-in-password" class="w-full p-2 border rounded-md" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="w-full bg-purple-600 text-white p-3 rounded-md hover:bg-purple-700 transition duration-300 transform hover:scale-105">Sign In</button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
